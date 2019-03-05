@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="AVELON.MANUALNOTIFICATION_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="NotificationInfo" sap:content-version="1">
+				<Key><PropertyRef Name="ManualNotifId"/></Key><Property Name="ManualNotifId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Synch. key"/><Property Name="Instid" Type="Edm.String" Nullable="false" MaxLength="70" sap:unicode="false" sap:label="Instance ID"/><Property Name="Typeid" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Object Type"/><Property Name="Catid" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Object Category"/><Property Name="NotifDate" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Date"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Char255"/></EntityType>
+			<EntityType Name="Category" sap:content-version="1">
+				<Key><PropertyRef Name="Catid"/></Key><Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Catid" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Object Category"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="ObjectId" sap:content-version="1">
+				<Key><PropertyRef Name="Typeid"/></Key><Property Name="Typeid" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Work item text"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Catid" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Work item text"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Editelem" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Object name"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityContainer Name="AVELON_MANUALNOTIFICATION_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="NotificationInfoSet" EntityType="AVELON.MANUALNOTIFICATION_SRV.NotificationInfo" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="CatidSet" EntityType="AVELON.MANUALNOTIFICATION_SRV.Category" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="ObjectIdSet" EntityType="AVELON.MANUALNOTIFICATION_SRV.ObjectId" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/></EntityContainer><atom:link rel="self" href="http://AVELON07.AVELON.NL:8016/sap/opu/odata/avelon/MANUALNOTIFICATION_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version" href="http://AVELON07.AVELON.NL:8016/sap/opu/odata/avelon/MANUALNOTIFICATION_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
