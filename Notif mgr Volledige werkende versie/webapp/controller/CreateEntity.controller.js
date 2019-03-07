@@ -63,14 +63,23 @@ sap.ui.define([
 			var oData = this.getView().getModel("NotificationForm").getData();
 			//var checkManualNotif = this.getView().getModel("NotificationForm").getProperty("ManualNotifId");
 			var boolEmptyFields = false;
+			var checkTextArea = false;
 			
 			var fields = $(".form").find("input[type=text]");
 			$.each(fields, function(i, field) {
     		if (!field.value)
     			boolEmptyFields = true;
-			});  	
+			});
 			
-			if(boolEmptyFields === false){
+			var textAreaFields = $(".form").find('textarea');
+			$.each(textAreaFields, function(i, textAreaField) {
+    		if (!textAreaField.value)
+    			checkTextArea = true;
+			});
+			
+			
+			
+			if(boolEmptyFields === false && checkTextArea === false){
 				
 			
 			this.getView().getModel().create("/NotificationInfoSet",oData,
@@ -100,11 +109,18 @@ sap.ui.define([
 			{
 			
 				var emptyFieldsBool = false;
+				var checkTextAreaEdit = false;
 			
-				var defields = $(".formedit").find("input[type=text]",'textarea');
+				var defields = $(".formedit").find("input[type=text]");
 				$.each(defields, function(i, field) {
     			if (!field.value)
     				emptyFieldsBool = true;
+				});
+				
+				var textAreaFieldsEdit = $(".formedit").find('textarea');
+				$.each(textAreaFieldsEdit, function(i, textAreaField) {
+    			if (!textAreaField.value)
+    			checkTextAreaEdit = true;
 				});
 		
 				var id = this.byId("notifId").getValue();
@@ -115,7 +131,7 @@ sap.ui.define([
 				var oDataa = this.getView().getModel("EditNotificationForm").getData();
 				
 				
-				if(emptyFieldsBool === false){
+				if(emptyFieldsBool === false && checkTextAreaEdit === false){
 			
     			oView.update(path,oDataa,
 				{
